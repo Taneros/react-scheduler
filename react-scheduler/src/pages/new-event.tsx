@@ -52,10 +52,14 @@ function NewEventPage() {
 
   const navigate = useNavigate();
 
+  // const handleClick = () => {
+  //   navigate(-1);
+  // };
+
   useEffect(() => {
-    if (createEventSuccess) {
-      navigate(-1);
-    }
+    // if (createEventSuccess) {
+    //   navigate(-1);
+    // }
   }, [createEventSuccess, navigate])
 
   return (
@@ -63,7 +67,7 @@ function NewEventPage() {
       <main>
         {createEventFailed && <Alert key="danger" variant="danger">Failed to create an event. The slot is already booked.</Alert>}
         <h1>Create new event</h1>
-        <form action="/" method="post" onSubmit={handleSubmit}>
+        <form action="/" method="post" onSubmit={handleSubmit} autoComplete="off">
           <label htmlFor="eventName">Name of the event:</label>
           <input
             type="text"
@@ -123,7 +127,7 @@ function NewEventPage() {
               {createOptions(HOURS)}
             </select>
           </div>
-          <button type="reset">Cancel</button>
+          {/* <button type="reset" onClick={handleClick}>Cancel</button> */}
           <button type="submit">Create</button>
         </form>
       </main>
