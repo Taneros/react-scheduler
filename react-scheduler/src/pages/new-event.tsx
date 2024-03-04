@@ -7,6 +7,12 @@ import { createEvent, updateState } from "../services/features/schedule/schedule
 import { useNavigate } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
 
+
+//TODO 
+/**
+  * rename component to NewEventPage (camel case)
+  **/
+
 function NewEventPage() {
   const [event, setEvent] = useState<TEvent>({
     name: "",
@@ -44,6 +50,11 @@ function NewEventPage() {
     });
   };
 
+  //TODO 
+  /**
+    * stick to one type of functions
+    **/
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     dispatch(createEvent(event));
@@ -57,6 +68,14 @@ function NewEventPage() {
       navigate(-1);
     }
   }, [createEventSuccess, navigate])
+
+  //TODO 
+  /**
+    * handler for setEvent({
+                ...event,
+                name: evt.target.value,
+              })
+    **/
 
   return (
     <div>
